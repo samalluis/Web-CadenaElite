@@ -322,7 +322,7 @@
     .about-card p {
       font-family: 'VT323', monospace;
       font-size: 20px;
-      color: #c6c6c6;
+      color: #2a2a2a;
       line-height: 1.7;
     }
 
@@ -525,6 +525,99 @@
       );
     }
 
+    /* ===== NAVBAR ===== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: #1a1a1a;
+      border-bottom: 4px solid #3a3a3a;
+      box-shadow: 0 4px 0 #000;
+    }
+    .navbar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      height: 52px;
+      gap: 8px;
+    }
+    .navbar-logo {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 11px;
+      color: var(--gold);
+      text-shadow: 2px 2px 0 #8b6000;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+    .navbar-links {
+      display: flex;
+      gap: 4px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .nav-link {
+      font-family: 'Press Start 2P', monospace;
+      font-size: 8px;
+      color: #c6c6c6;
+      text-decoration: none;
+      padding: 6px 10px;
+      background: #2a2a2a;
+      border: 2px solid;
+      border-color: #555 #222 #222 #555;
+      white-space: nowrap;
+      transition: background 0.08s, color 0.08s;
+      text-shadow: 1px 1px 0 #000;
+    }
+    .nav-link:hover {
+      background: #5aaa22;
+      color: white;
+      border-color: #7dcf44 #2d6d00 #2d6d00 #7dcf44;
+      text-shadow: 1px 1px 0 #1a4400;
+    }
+    .nav-link.active {
+      background: #3d7a10;
+      color: #b0ff80;
+      border-color: #5aaa22 #1a3a00 #1a3a00 #5aaa22;
+    }
+    /* Hamburger for mobile */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: #2a2a2a;
+      border: 2px solid #555;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 3px;
+      background: #c6c6c6;
+    }
+    @media (max-width: 800px) {
+      .nav-hamburger { display: flex; }
+      .navbar-links {
+        display: none;
+        position: absolute;
+        top: 52px; left: 0; right: 0;
+        background: #1a1a1a;
+        border-bottom: 4px solid #3a3a3a;
+        flex-direction: column;
+        padding: 8px 16px 12px;
+        gap: 6px;
+      }
+      .navbar-links.open { display: flex; }
+      .nav-link { font-size: 9px; }
+    }
+
+    /* Push hero content below navbar */
+    .hero { padding-top: 100px; }
+
     /* Pixel particles */
     .pixel-particle {
       position: fixed;
@@ -562,6 +655,24 @@
   </style>
 </head>
 <body>
+
+<nav class="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="navbar-logo">⛏️ El Servidor</a>
+    <div class="nav-hamburger" onclick="this.nextElementSibling.classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="navbar-links">
+      <a href="index.html" class="nav-link active">🏠 Inicio</a>
+      <a href="insignias.html" class="nav-link">🏅 Insignias</a>
+      <a href="servidores-mc.html" class="nav-link">⛏️ Servidores MC</a>
+      <a href="blog.html" class="nav-link">📝 Blog</a>
+      <a href="integrantes.html" class="nav-link">👥 Integrantes</a>
+      <a href="reglas.html" class="nav-link">📜 Reglas</a>
+      <a href="contactanos.html" class="nav-link">📩 Contáctanos</a>
+    </div>
+  </div>
+</nav>
 
 <div class="sky-bg"></div>
 <div class="cloud cloud-1"></div>
@@ -615,7 +726,6 @@
   </div>
 
   <div class="hero-buttons">
-    <a href="https://discord.gg/" class="mc-btn mc-btn-primary">▶ UNIRSE AL DISCORD</a>
     <a href="#equipo" class="mc-btn mc-btn-secondary">👑 VER EL EQUIPO</a>
     <a href="#juegos" class="mc-btn mc-btn-diamond">🎮 JUEGOS</a>
   </div>

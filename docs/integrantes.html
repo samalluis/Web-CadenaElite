@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <title>Cadena Élite Integrantes</title>
+        <link rel="icon" href="https://minecraft.wiki/images/EntitySprite_steve.png">
+        <style>
+            :root {
+                --tamaño: 200px;
+            }
+            body {
+                margin: 0px;
+                background-color: azure;
+                padding: 20px;
+            }
+            .malla_integrante {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, var(--tamaño));
+                justify-content: center;
+                gap: calc(var(--tamaño) / 10);
+            }
+            .integrante {
+                position: relative;
+
+                width: var(--tamaño);
+                height: var(--tamaño);
+                background-color: thistle;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .integrante:hover .skin{
+                z-index: 1;
+            }
+            .malla_insignia {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+                box-sizing: border-box;
+
+                display: grid;
+                grid-template-columns: repeat(6, 1fr);
+                align-content: start;
+                gap: 2%;
+                padding: 2%;
+            }
+            .insignia {
+                width: 100%;
+                aspect-ratio: 1/1;
+                background-color: aquamarine;
+            }
+            .skin {
+                width: 75%;
+                aspect-ratio: 1/1;
+                background-color: cadetblue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="malla_integrante">
+            <div class="integrante">
+                <div class="malla_insignia">
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                    <div class="insignia"></div>
+                </div>
+                <div class="skin"></div>
+            </div>
+            <div class="integrante"></div>
+            <div class="integrante"></div>
+            <div class="integrante"></div>
+            <div class="integrante"></div>
+            <div class="integrante"></div>
+        </div>
+    </body>
+</html>
